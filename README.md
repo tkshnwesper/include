@@ -32,6 +32,26 @@ CONSTANT  # => TestModule::CONSTANT
 
 ```crystal
 require "include"
+
+module TestModule
+  extend self
+
+  def test_function
+  end
+
+  CONSTANT = 1
+
+  class TClass
+  end
+
+  module SubModule
+  end
+end
+
+include_module(TestModule)
+
+test_function   # => TestModule.test_function
+SubModule       # => TestModule::SubModule
 ```
 
 ### Including methods
